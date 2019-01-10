@@ -1,6 +1,17 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h1>{{ greeting }}</h1>
+    <button v-on:click="reverseMessage">逆转消息</button>
+    <ul>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ul>
+    <span v-bind:title="greeting">
+      鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </span>
+    <p v-if="seen">现在你看到我了</p>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -35,6 +46,22 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data: () => {
+    return {
+      greeting: 'how are you',
+      seen: true,
+      todos: [
+        { text: '学习 JavaScript' },
+        { text: '学习 Vue' },
+        { text: '整个牛项目' }
+      ]
+    }
+  },
+  methods: {
+    reverseMessage: function () {
+      this.greeting = this.greeting.split('').reverse().join('')
+    }
   }
 }
 </script>
