@@ -4,7 +4,7 @@
     <h1>{{ greeting }}</h1>
     <button v-on:click="reverseMessage">逆转消息</button>
     <ul>
-      <li v-for="todo in todos">
+      <li v-for="todo in todos" v-bind:key="todo">
         {{ todo.text }}
       </li>
     </ul>
