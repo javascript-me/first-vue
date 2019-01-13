@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello-world-component">
     <input v-model="message" />
     <div v-on:click="showMessage">Click Me</div>
     <h1>{{ msg }}</h1>
@@ -82,7 +82,7 @@ ul {
   padding: 0;
 }
 li {
-  display: inline-block;
+  /* display: inline-block; */
   margin: 0 10px;
 }
 a {
