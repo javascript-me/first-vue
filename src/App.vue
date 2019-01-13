@@ -6,6 +6,7 @@
 </template>
 
 <script>
+// 如果这里不作引用，上面就会报错。
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
