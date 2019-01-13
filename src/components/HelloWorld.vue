@@ -6,9 +6,10 @@
     <h1>{{ greeting }}</h1>
     <button v-on:click="reverseMessage">逆转消息</button>
     <ul>
-      <li v-for="todo in todos" v-bind:key="todo.text">
-        {{ todo.text }}
-      </li>
+      <TodoItem v-for="item in todos"
+        v-bind:todo="item"
+        v-bind:random=String(Math.random())
+        v-bind:key="item.text" />
     </ul>
     <span v-bind:title="greeting">
       鼠标悬停几秒钟查看此处动态绑定的提示信息！
@@ -44,6 +45,8 @@
 </template>
 
 <script>
+import TodoItem from './TodoItem.vue'
+
 export default {
   name: 'HelloWorld',
   props: {
@@ -68,6 +71,9 @@ export default {
     showMessage: function () {
       console.log(this.message)
     }
+  },
+  components: {
+    TodoItem
   }
 }
 </script>
