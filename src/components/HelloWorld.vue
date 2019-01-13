@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <div v-on:click="sayHello">Click Me</div>
     <h1>{{ msg }}</h1>
     <h1>{{ greeting }}</h1>
     <button v-on:click="reverseMessage">逆转消息</button>
@@ -61,6 +62,9 @@ export default {
   methods: {
     reverseMessage: function () {
       this.greeting = this.greeting.split('').reverse().join('')
+    },
+    sayHello: function () {
+      console.log('hello...')
     }
   }
 }
