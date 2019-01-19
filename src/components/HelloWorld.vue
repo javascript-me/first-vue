@@ -1,6 +1,7 @@
 <template>
   <div class="hello-world-component">
-    <input v-model="message" />
+    <input v-bind:value="msg" /><br />
+    <input v-model="message" /><br />
     <div v-on:click="showMessage">Click Me</div>
     <h1>{{ msg }}</h1>
     <h1>{{ greeting }}</h1>
