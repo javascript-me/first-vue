@@ -22,7 +22,7 @@
     </ul>
     
     <p v-if="seen">现在你看到我了</p>
-    
+
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -78,6 +78,15 @@ export default {
     },
     showMessage: function () {
       console.log(this.message)
+    }
+  },
+  created: function () {
+    console.log('greeting', this.greeting)
+  },
+  watch: {
+    greeting: function (newValue, oldValue) {
+      console.log('newValue', newValue)
+      console.log('oldValue', oldValue)
     }
   },
   components: {
