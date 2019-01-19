@@ -1,6 +1,31 @@
 <template>
   <div class="hello-world-component">
-    <h1>{{ greeting }}</h1>
+    <h2>计算属性</h2>
+    <div>{{reversedMessage}}</div>
+    <hr />
+
+    <div>TODO: 修饰符到底有没有用？</div>
+    <hr />
+
+    <h2>formula</h2>
+    <!-- formula也可以使用内部的方法 -->
+    <div>{{sum()}}</div>
+    <!-- 属性值里面也可以使用formula -->
+    <input v-bind:value='sum() + "111"' />
+    <hr />
+
+    <h2>失去作用的button</h2>
+    <button v-bind:disabled="isButtonDisabled">Button</button>
+    <hr />
+
+    <!-- v-html的值不会替换结点本身，而只会作为子结点加入去。 -->
+    <p>Using v-html directive: <span v-html="rawHtml">okok</span></p>
+    <hr />
+
+    <!-- 所谓响应式，就是指结点使用了一个不是硬编码的东西，即变量 -->
+    <h1>greeting: {{ greeting }}</h1>
+    <h1 v-once>greeting once: {{ greeting }}</h1>
+
     <input v-bind:value="greeting" /><br />
     
     <div v-bind:title="greeting">
@@ -11,12 +36,13 @@
 
     <hr />
 
+    <!-- react里面是没有这种直接的绑定的，vue的这种东西真的有用吗？ -->
     <input v-model="message" /><br />
     <button v-on:click="showMessage">Show message</button><br />
     
     <hr />
 
-    <h1>{{ messageFromParent }}</h1>
+    <h1>props value: {{ messageFromParent }}</h1>
     
     <hr />
 
@@ -72,7 +98,9 @@ export default {
   },
   data: () => {
     return {
-      greeting: 'how are you',
+      isButtonDisabled: true,
+      rawHtml: '<span style="color:red">ok</span>',
+      greeting: '12345',
       seen: true,
       todos: [
         { text: '学习 JavaScript' },
@@ -88,6 +116,14 @@ export default {
     },
     showMessage: function () {
       console.log(this.message)
+    },
+    sum: function () {
+      return this.greeting + 'ooo'
+    }
+  },
+  computed: {
+    reversedMessage: function () {
+      return this.greeting.split('').reverse().join('')
     }
   },
   created: function () {
