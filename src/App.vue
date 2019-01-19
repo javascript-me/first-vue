@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld messageFromParent="Message from parent"/>
+    <img alt="Vue logo" src="./assets/logo.png" width="100">
     <HelloPanel />
+    <hr />
+    
+    <HelloWorld messageFromParent="Message from parent"/>
+    
   </div>
 </template>
 

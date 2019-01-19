@@ -9,11 +9,17 @@
 
     <button v-on:click="reverseGreeting">逆转消息</button><br />
 
+    <hr />
+
     <input v-model="message" /><br />
     <button v-on:click="showMessage">Show message</button><br />
     
+    <hr />
+
     <h1>{{ messageFromParent }}</h1>
     
+    <hr />
+
     <ul>
       <TodoItem v-for="item in todos"
         v-bind:todo="item"
@@ -21,7 +27,11 @@
         v-bind:key="item.text" />
     </ul>
     
+    <hr />
+
     <p v-if="seen">现在你看到我了</p>
+
+    <hr />
 
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
