@@ -1,11 +1,12 @@
 <template>
   <div class="hello-world-component">
-    <input v-bind:value="msg" /><br />
+    <input v-bind:value="greeting" /><br />
+    
     <input v-model="message" /><br />
-    <div v-on:click="showMessage">Click Me</div>
-    <h1>{{ msg }}</h1>
+    <div v-on:click="showMessage">Show message</div>
+    <h1>{{ messageFromParent }}</h1>
     <h1>{{ greeting }}</h1>
-    <button v-on:click="reverseMessage">逆转消息</button>
+    <button v-on:click="reverseGreeting">逆转消息</button>
     <ul>
       <TodoItem v-for="item in todos"
         v-bind:todo="item"
@@ -51,7 +52,7 @@ import TodoItem from './TodoItem.vue'
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    messageFromParent: String
   },
   data: () => {
     return {
@@ -62,11 +63,11 @@ export default {
         { text: '学习 Vue' },
         { text: '整个牛项目' }
       ],
-      message: 'okok'
+      message: 'message from myself'
     }
   },
   methods: {
-    reverseMessage: function () {
+    reverseGreeting: function () {
       this.greeting = this.greeting.split('').reverse().join('')
     },
     showMessage: function () {
