@@ -23,8 +23,8 @@
     <hr />
 
     <!-- 所谓响应式，就是指结点使用了一个不是硬编码的东西，即变量 -->
-    <h1>greeting: {{ greeting }}</h1>
-    <h1 v-once>greeting once: {{ greeting }}</h1>
+    <h2>greeting: {{ greeting }}</h2>
+    <h2 v-once>greeting once: {{ greeting }}</h2>
 
     <input v-bind:value="greeting" /><br />
     
@@ -42,7 +42,7 @@
     
     <hr />
 
-    <h1>props value: {{ messageFromParent }}</h1>
+    <h2>props value: {{ messageFromParent }}</h2>
     
     <hr />
 
