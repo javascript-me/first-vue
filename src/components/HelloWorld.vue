@@ -1,22 +1,28 @@
 <template>
   <div class="hello-world-component">
+    <h1>{{ greeting }}</h1>
     <input v-bind:value="greeting" /><br />
     
+    <div v-bind:title="greeting">
+      鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </div>
+
+    <button v-on:click="reverseGreeting">逆转消息</button><br />
+
     <input v-model="message" /><br />
-    <div v-on:click="showMessage">Show message</div>
+    <button v-on:click="showMessage">Show message</button><br />
+    
     <h1>{{ messageFromParent }}</h1>
-    <h1>{{ greeting }}</h1>
-    <button v-on:click="reverseGreeting">逆转消息</button>
+    
     <ul>
       <TodoItem v-for="item in todos"
         v-bind:todo="item"
         v-bind:random=String(Math.random())
         v-bind:key="item.text" />
     </ul>
-    <span v-bind:title="greeting">
-      鼠标悬停几秒钟查看此处动态绑定的提示信息！
-    </span>
+    
     <p v-if="seen">现在你看到我了</p>
+    
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
