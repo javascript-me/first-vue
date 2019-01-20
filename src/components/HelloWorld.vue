@@ -6,6 +6,7 @@
         <input v-model="question">
       </p>
       <p>{{ answer }}</p>
+      <img alt="Vue logo" v-bind:src="answerImagePath" width="100">
     </div>
     <hr />
 
@@ -109,6 +110,7 @@ export default {
   },
   data: () => {
     return {
+      answerImagePath: require('../assets/logo.png'),
       question: '',
       answer: 'I cannot give you an answer until you ask a question!',
       isButtonDisabled: true,
@@ -143,6 +145,7 @@ export default {
       axios.get('https://yesno.wtf/api')
         .then(function (response) {
           vm.answer = _.capitalize(response.data.answer)
+          vm.answerImagePath = response.data.image
         })
         .catch(function (error) {
           vm.answer = 'Error! Could not reach the API. ' + error
