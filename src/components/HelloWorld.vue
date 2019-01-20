@@ -1,5 +1,10 @@
 <template>
   <div class="hello-world-component">
+    <div v-bind:class="computedClassObject">computed class object</div>
+    <div v-bind:class="classObject">class object</div>
+    <div class="okok" v-bind:class="{ active: isActive, 'has-error': true }">is active class</div>
+    <hr />
+
     <div id="watch-example">
       <p>
         Ask a yes/no question:
@@ -110,6 +115,11 @@ export default {
   },
   data: () => {
     return {
+      classObject: {
+        active: true,
+        'text-danger': true
+      },
+      isActive: true,
       answerImagePath: require('../assets/logo.png'),
       question: '',
       answer: 'I cannot give you an answer until you ask a question!',
@@ -155,6 +165,12 @@ export default {
   computed: {
     reversedMessage: function () {
       return this.greeting.split('').reverse().join('')
+    },
+    computedClassObject: function () {
+      return {
+        active: true,
+        'text-danger': true
+      }
     }
   },
   created: function () {
