@@ -1,5 +1,15 @@
 <template>
   <div class="hello-world-component">
+    <!-- 这个有点接近react的ClassNames()的用法了 -->
+    <div v-bind:class="[
+      {active: isActive},
+      errorClass
+    ]">
+      condition class with object shortcut
+    </div>    
+    <!-- 某一个类的单词，居然也定义成变量，这种情况实际上是少之又少的。 -->
+    <div v-bind:class="[isActive ? activeClass : '', errorClass]">condition class</div>
+    <div v-bind:class="[activeClass, errorClass]">array to class</div>
     <div v-bind:class="computedClassObject">computed class object</div>
     <div v-bind:class="classObject">class object</div>
     <div class="okok" v-bind:class="{ active: isActive, 'has-error': true }">is active class</div>
@@ -115,6 +125,8 @@ export default {
   },
   data: () => {
     return {
+      activeClass: 'active',
+      errorClass: 'text-danger',
       classObject: {
         active: true,
         'text-danger': true
