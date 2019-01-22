@@ -1,5 +1,22 @@
 <template>
   <div class="hello-world-component">
+
+    <h1 v-show="true">Hello!</h1>
+    <template v-if="Math.random() > 0.5">
+      <h1>Title</h1>
+      <p>Paragraph 1</p>
+      <p>Paragraph 2</p>
+    </template>
+    <h1 v-if="Math.random() > 0.5">条件渲染：Yes</h1>
+    <h1 v-else>条件渲染：No</h1>
+    <hr />
+
+    <div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">multiple prefix</div>
+    <div v-bind:style="[baseStyles, overridingStyles]">multiple object variable</div>
+    <div v-bind:style="styleObject">bind first style object variable</div>
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">bind first style object</div>
+    <hr />
+
     <!-- 这个有点接近react的ClassNames()的用法了 -->
     <div v-bind:class="[
       {active: isActive},
@@ -125,6 +142,17 @@ export default {
   },
   data: () => {
     return {
+      baseStyles: {
+        fontSize: '40px'
+      },
+      overridingStyles: {
+        color: 'blue'
+      },
+      styleObject: {
+        backgroundColor: 'grey'
+      },
+      activeColor: 'red',
+      fontSize: 20,
       activeClass: 'active',
       errorClass: 'text-danger',
       classObject: {
