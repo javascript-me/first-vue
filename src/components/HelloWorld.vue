@@ -1,5 +1,44 @@
 <template>
   <div class="hello-world-component">
+    <div>
+      <span v-for="(n, index) in 10" :key="index">{{ n }} </span>
+    </div>
+    <ul>
+      <!-- 如果li是位于一个ul之内的话，li上的:key就直接使用值index即可。
+      如果多个li忘记了被各自的ul所包裹，那么li上的:key，就有可能相同而发生冲突。 -->
+      <li v-for="(n, index) in even(numbers)" v-bind:key="index">{{ n }}</li>
+    </ul>
+    <ul>
+      <li v-for="(n, index) in evenNumbers" v-bind:key="index">{{ n }}</li>
+    </ul>
+    <hr />
+
+    <ul id="v-for-object" class="demo">
+      <li v-for="(value, key) in goodObject" v-bind:key="key">
+        {{ value }}
+      </li>
+    </ul>
+    <button v-on:click="addMoreProperty">add more property</button>
+
+    <ul id="example-1">
+      <li v-for="item in items" v-bind:key="item.message">
+        {{ item.message }}
+      </li>
+    </ul>
+
+    <button v-on:click="changeMyArray">Change my array</button>
+
+    <ul id="example-1.1">
+      <li v-for="item of items" v-bind:key="item.message">
+        {{ item.message }}
+      </li>
+    </ul>    
+    <ul id="example-2">
+      <li v-for="(item, index) in items" v-bind:key="index">
+        {{ parentMessage }} - {{ index }} - {{ item.message }}
+      </li>
+    </ul>
+    <hr />
 
     <h1 v-show="true">Hello!</h1>
     <template v-if="Math.random() > 0.5">
@@ -142,6 +181,17 @@ export default {
   },
   data: () => {
     return {
+      numbers: [ 1, 2, 3, 4, 5 ],
+      goodObject: {
+        firstName: 'John',
+        lastName: 'Doe',
+        age: 30
+      },
+      parentMessage: 'Parent',
+      items: [
+        { message: 'Foo' },
+        { message: 'Bar' }
+      ],
       baseStyles: {
         fontSize: '40px'
       },
@@ -176,6 +226,21 @@ export default {
     }
   },
   methods: {
+    even: function (numbers) {
+      return numbers.filter(function (number) {
+        return number % 2 === 0
+      })
+    },
+    addMoreProperty: function () {
+      this.goodObject = Object.assign({}, this.goodObject, {
+        time: '2019-02-08'
+      })
+    },
+    changeMyArray: function () {
+      this.items.splice(0, 1, {
+        message: 'ggg'
+      })
+    },
     reverseGreeting: function () {
       this.greeting = this.greeting.split('').reverse().join('')
     },
@@ -203,6 +268,11 @@ export default {
     }
   },
   computed: {
+    evenNumbers: function () {
+      return this.numbers.filter(function (number) {
+        return number % 2 === 0
+      })
+    },
     reversedMessage: function () {
       return this.greeting.split('').reverse().join('')
     },
