@@ -128,10 +128,11 @@
     <hr />
 
     <ul>
-      <TodoItem v-for="item in todos"
+      <TodoItem v-for="(item, index) in completedTodos(todos)"
         v-bind:todo="item"
         v-bind:random=String(Math.random())
-        v-bind:key="item.text" />
+        v-bind:key="item.text"
+        v-on:delete="handleDelete(index)" />
     </ul>
     
     <hr />
@@ -218,14 +219,22 @@ export default {
       greeting: '12345',
       seen: true,
       todos: [
-        { text: '学习 JavaScript' },
-        { text: '学习 Vue' },
-        { text: '整个牛项目' }
+        { text: '学习 JavaScript', isComplete: true },
+        { text: '学习 Vue', isComplete: false },
+        { text: '整个牛项目', isComplete: true }
       ],
       message: 'message from myself'
     }
   },
   methods: {
+    handleDelete: function (index) {
+      console.log('handle delete', index)
+    },
+    completedTodos: function (todos) {
+      return todos.filter((item) => {
+        return item.isComplete
+      })
+    },
     even: function (numbers) {
       return numbers.filter(function (number) {
         return number % 2 === 0
