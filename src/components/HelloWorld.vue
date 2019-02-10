@@ -1,5 +1,88 @@
 <template>
   <div class="hello-world-component">
+    用户只能输入数字和点号<input v-model.number="age" type="number"><br />
+
+    我的字面值是来自一个变量pickShaddow<input type="radio" v-model="pick" v-bind:value="pickShaddow">
+    <span>pick: {{pick}}</span> 
+    <br />
+
+    <select v-model="selected">
+      <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+
+
+    <div id="example-6">
+      <select v-model="multipleSelected" multiple style="width: 50px;">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <br>
+      <span>Selected: {{ multipleSelected }}</span>
+    </div>
+
+    <div id="example-5">
+      <select v-model="singleSelected">
+        <option disabled value="">请选择</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <span>Selected: {{ singleSelected }}</span>
+    </div>
+
+
+    <div id="example-4">
+      <input type="radio" id="one" value="One" v-model="picked">
+      <label for="one">One</label>
+      <br>
+      <input type="radio" id="two" value="Two" v-model="picked">
+      <label for="two">Two</label>
+      <br>
+      <span>Picked: {{ picked }}</span>
+    </div>
+
+    <!-- 如此原始的绑定关系，真的有实际应用价值么？ -->
+    <div id='example-3'>
+      <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+      <label for="jack">Jack</label>
+      <input type="checkbox" id="john" value="John" v-model="checkedNames">
+      <label for="john">John</label>
+      <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+      <label for="mike">Mike</label>
+      <br>
+      <span>Checked names: {{ checkedNames }}</span>
+    </div>
+
+
+    <input type="checkbox" id="checkbox" v-model="fieldChecked">
+    <label for="checkbox">{{ fieldChecked }}</label><br />
+
+
+    <span>Multiline message is:</span>
+    <p style="white-space: pre-line;">{{ richTextContent }}</p>
+    <br>
+    <textarea v-model="richTextContent" placeholder="add multiple lines"></textarea>
+
+    <hr />
+    Try to press Shift and click<button @click.shift.exact="warn('Are you OK?', $event)">A</button><br />
+    Try to press Shift + C<input @keyup.shift.67="warn('Are you OK?', $event)"><br />
+    Try to press "enter"<input v-on:keyup.13="warn('Are you OK?', $event)"><br />
+    Try to press "enter"<input v-on:keyup.enter="warn('Are you OK?', $event)"><br />
+
+    <button v-on:click="warn('Are you OK?', $event)">
+      Submit
+    </button>
+
+    <div id="example-1">
+      <button v-on:click="counter += 1">Add 1</button>
+      <p>The button above has been clicked {{ counter }} times.</p>
+    </div>
+    <hr />
+
     <div>
       <span v-for="(n, index) in 10" :key="index">{{ n }} </span>
     </div>
@@ -182,6 +265,22 @@ export default {
   },
   data: () => {
     return {
+      age: 20,
+      pick: '',
+      pickShaddow: 'okok',
+      selected: 'A',
+      options: [
+        { text: 'One', value: 'A' },
+        { text: 'Two', value: 'B' },
+        { text: 'Three', value: 'C' }
+      ],
+      multipleSelected: [],
+      singleSelected: '',
+      picked: '',
+      checkedNames: [],
+      fieldChecked: false,
+      richTextContent: '',
+      counter: 0,
       numbers: [ 1, 2, 3, 4, 5 ],
       goodObject: {
         firstName: 'John',
@@ -227,6 +326,11 @@ export default {
     }
   },
   methods: {
+    warn: function (message, event) {
+      // 现在我们可以访问原生事件对象
+      if (event) event.preventDefault()
+      console.log(message, event.target.tagName)
+    },
     handleDelete: function (index) {
       console.log('handle delete', index)
     },
@@ -250,8 +354,9 @@ export default {
         message: 'ggg'
       })
     },
-    reverseGreeting: function () {
+    reverseGreeting: function (event) {
       this.greeting = this.greeting.split('').reverse().join('')
+      console.log(event.target.tagName)
     },
     showMessage: function () {
       console.log(this.message)
