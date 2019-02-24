@@ -213,7 +213,7 @@
     <ul>
       <TodoItem v-for="(item, index) in completedTodos(todos)"
         v-bind:todo="item"
-        v-bind:random=String(Math.random())
+        v-bind:random="String(Math.random())"
         v-bind:key="item.text"
         v-on:delete="handleDelete(index, item.text)" />
     </ul>
