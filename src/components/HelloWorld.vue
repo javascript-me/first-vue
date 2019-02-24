@@ -3,7 +3,7 @@
     用户只能输入数字和点号<input v-model.number="age" type="number"><br />
 
     我的字面值是来自一个变量pickShaddow<input type="radio" v-model="pick" v-bind:value="pickShaddow">
-    <span>pick: {{pick}}</span> 
+    <span>pick: {{pick}}</span>
     <br />
 
     <select v-model="selected">
