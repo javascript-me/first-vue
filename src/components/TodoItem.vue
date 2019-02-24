@@ -1,6 +1,6 @@
 <template>
 	<li>
-		{{todo.text}}: {{random}}
+		{{todo.text}}: {{random}}: {{id}}
 		<button v-on:click="deleteMyself">delete</button>
 	</li>
 </template>
@@ -9,6 +9,11 @@
 export default {
 	name: 'TodoItem',
 	props: ['todo', 'random'],
+	data: () => {
+		return {
+			id: "ooo"
+		}
+	},
 	methods: {
 		deleteMyself: function () {
 			this.$emit("delete")
