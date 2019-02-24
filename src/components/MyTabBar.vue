@@ -7,6 +7,7 @@
 			v-on:click="currentTab = tab"
 		>{{ tab }}</button>
 
+		<!-- v-bind:is语法可以动态使用指定名称的组件来完全替换当前结点。 -->
 		<component
 			v-bind:is="currentTabComponent"
 			class="tab"
