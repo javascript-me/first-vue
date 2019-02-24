@@ -217,9 +217,13 @@
         v-bind:todo="item"
         v-bind:random="String(Math.random())"
         v-bind:key="index"
-        v-on:delete="handleDelete" />
+        v-on:delete="(text, timeStamp) => {
+          handleDelete(text, timeStamp, index)
+        }" />
         <!-- 如果想往handleDelete这个方法传入额外的值，可以做得到么？react是可以做到的，像下面这样
-        （） => {executeRealHandler(index, etc...)} -->
+        （） => {executeRealHandler(index, etc...)} 
+          事实表明，vue也是可以做到的，请看上面的实现方法。
+        -->
     </ul>
     
     <hr />
@@ -339,8 +343,8 @@ export default {
       if (event) event.preventDefault()
       console.log(message, event.target.tagName)
     },
-    handleDelete: function (text, timeStamp) {
-      console.log('text', text, 'timeStamp', timeStamp)
+    handleDelete: function (text, timeStamp, index) {
+      console.log('text', text, 'timeStamp', timeStamp, 'index', index)
       this.todos = this.todos.filter((item) => {
         return item.text != text
       })
