@@ -215,7 +215,7 @@
         v-bind:todo="item"
         v-bind:random=String(Math.random())
         v-bind:key="item.text"
-        v-on:delete="handleDelete(index)" />
+        v-on:delete="handleDelete(index, item.text)" />
     </ul>
     
     <hr />
@@ -331,8 +331,10 @@ export default {
       if (event) event.preventDefault()
       console.log(message, event.target.tagName)
     },
-    handleDelete: function (index) {
-      console.log('handle delete', index)
+    handleDelete: function (index, text) {
+      this.todos = this.todos.filter((item) => {
+        return item.text != text
+      })
     },
     completedTodos: function (todos) {
       return todos.filter((item) => {
