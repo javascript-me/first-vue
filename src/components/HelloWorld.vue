@@ -219,7 +219,7 @@
         v-bind:key="index"
         v-on:delete="(text, timeStamp) => {
           handleDelete(text, timeStamp, index)
-        }" />
+        }">0-0-0-0-0</TodoItem>
         <!-- 如果想往handleDelete这个方法传入额外的值，可以做得到么？react是可以做到的，像下面这样
         （） => {executeRealHandler(index, etc...)} 
           事实表明，vue也是可以做到的，请看上面的实现方法。

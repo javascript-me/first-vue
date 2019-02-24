@@ -2,6 +2,7 @@
 	<li>
 		{{todo.text}}: {{random}}: {{id}}
 		<button v-on:click="deleteMyself">delete</button>
+		<slot />
 	</li>
 </template>
 
