@@ -16,7 +16,8 @@ export default {
 	},
 	methods: {
 		deleteMyself: function () {
-			this.$emit("delete")
+			console.log('todo', this.todo)
+			this.$emit("delete", this.todo.text, new Date())
 			// 这里不需要告诉父结点自己的index值。父结点自己有办法知道这个信息。
 		}
 	}

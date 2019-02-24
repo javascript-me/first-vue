@@ -1,5 +1,7 @@
 <template>
   <div class="hello-world-component">
+    input真有一个事件叫做'input'么?有的。<input v-bind:value="myInputValue" v-on:input="handleMyInputChange" />
+    <hr />
     用户只能输入数字和点号<input v-model.number="age" type="number"><br />
 
     我的字面值是来自一个变量pickShaddow<input type="radio" v-model="pick" v-bind:value="pickShaddow">
@@ -214,8 +216,10 @@
       <TodoItem v-for="(item, index) in completedTodos(todos)"
         v-bind:todo="item"
         v-bind:random="String(Math.random())"
-        v-bind:key="item.text"
-        v-on:delete="handleDelete(index, item.text)" />
+        v-bind:key="index"
+        v-on:delete="handleDelete" />
+        <!-- 如果想往handleDelete这个方法传入额外的值，可以做得到么？react是可以做到的，像下面这样
+        （） => {executeRealHandler(index, etc...)} -->
     </ul>
     
     <hr />
@@ -265,6 +269,7 @@ export default {
   },
   data: () => {
     return {
+      myInputValue: 'ttt',
       age: 20,
       pick: '',
       pickShaddow: 'okok',
@@ -326,12 +331,16 @@ export default {
     }
   },
   methods: {
+    handleMyInputChange: function (e) {
+      console.log('new value: ', e.target.value)
+    },
     warn: function (message, event) {
       // 现在我们可以访问原生事件对象
       if (event) event.preventDefault()
       console.log(message, event.target.tagName)
     },
-    handleDelete: function (index, text) {
+    handleDelete: function (text, timeStamp) {
+      console.log('text', text, 'timeStamp', timeStamp)
       this.todos = this.todos.filter((item) => {
         return item.text != text
       })
