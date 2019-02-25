@@ -1,6 +1,9 @@
 <template>
 	<div id="app" name>
-		main page...
+		<router-link to="/">app</router-link><br />
+		main page...<br />
+		<router-link to="/app-other">app-other</router-link><br />
+		
 		<router-view/>
 	</div>
 
