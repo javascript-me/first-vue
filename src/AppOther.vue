@@ -1,5 +1,5 @@
 <template>
-  <div id="app-0">
+  <div id="app-1">
     <img alt="Vue logo" src="./assets/logo.png" width="100">
 
     <!-- 这样随意的嵌入class的值，真的好么？以前react是使用传入一个skin的属性值来做到这个效果。 -->
