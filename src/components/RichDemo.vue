@@ -1,5 +1,8 @@
 <template>
   <div class="hello-world-component">
+    <MyVModel v-model="valueOfMyVModel" />
+
+    <hr />
     input真有一个事件叫做'input'么?有的。<input v-bind:value="myInputValue" v-on:input="handleMyInputChange" />
     <hr />
     用户只能输入数字和点号<input v-model.number="age" type="number"><br />
@@ -262,17 +265,23 @@
 </template>
 
 <script>
+import MyVModel from './MyVModel.vue'
 import TodoItem from './TodoItem.vue'
 import _ from 'lodash'
 import axios from 'axios'
 
 export default {
   name: 'RichDemo',
+  components: {
+    TodoItem,
+    MyVModel
+  },
   props: {
     messageFromParent: String
   },
   data: () => {
     return {
+      valueOfMyVModel: 10,
       myInputValue: 'ttt',
       age: 20,
       pick: '',
@@ -425,9 +434,6 @@ export default {
       this.answer = 'Waiting for you to stop typing...'
       this.debouncedGetAnswer()
     }
-  },
-  components: {
-    TodoItem
   }
 }
 </script>

@@ -9,7 +9,7 @@
 <script>
 export default {
 	name: 'TodoItem',
-	props: ['todo', 'random'],
+	props: ['todo', 'random'],// TODO: Vue的props应该使用类型检查
 	data: () => {
 		return {
 			id: "ooo"
