@@ -1,5 +1,5 @@
 <template>
-  <div id="app-1">
+  <div id="app-other">
     other
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
 
 export default {
-  name: 'App'
+  name: 'AppOther'
 }
 </script>
 
