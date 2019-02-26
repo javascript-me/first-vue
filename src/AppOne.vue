@@ -19,7 +19,7 @@
 // 如果这里不作引用，上面就会报错。
 import RichDemo from './components/RichDemo.vue'
 import HelloPanel from './components/HelloPanel.vue'
-import MyTabBar from './components/MyTabBar.vue'
+import MyTabBar from './components/my-tab-bar/MyTabBar.vue'
 
 export default {
   name: 'AppOne',
