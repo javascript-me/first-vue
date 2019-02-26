@@ -267,7 +267,7 @@ import _ from 'lodash'
 import axios from 'axios'
 
 export default {
-  name: 'HelloWorld',
+  name: 'RichDemo',
   props: {
     messageFromParent: String
   },

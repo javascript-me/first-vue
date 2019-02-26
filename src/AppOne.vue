@@ -6,7 +6,7 @@
     <HelloPanel class='additional' v-bind:class="true ? 'a' : 'b'" />
     <hr />
     
-    <HelloWorld messageFromParent="Message from parent"/>
+    <RichDemo messageFromParent="Message from parent"/>
 
     <hr />
 
@@ -17,14 +17,14 @@
 
 <script>
 // 如果这里不作引用，上面就会报错。
-import HelloWorld from './components/HelloWorld.vue'
+import RichDemo from './components/RichDemo.vue'
 import HelloPanel from './components/HelloPanel.vue'
 import MyTabBar from './components/MyTabBar.vue'
 
 export default {
   name: 'AppOne',
   components: {
-    HelloWorld,
+    RichDemo,
     HelloPanel,
     MyTabBar
   }
