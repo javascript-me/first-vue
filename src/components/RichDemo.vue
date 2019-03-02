@@ -3,8 +3,10 @@
 
     <PassPropDemo message="yyy"
       v-bind:dynamicMessage="dynamicMessage"
-      v-bind:ageOfCat="ageOfCat" />
-
+      v-bind:ageOfCat="ageOfCat"
+      ageOfDog='4'
+      v-bind:ageOfFish="ageOfFish" />
+      
     <hr />
 
     Base Button: <BaseButton /> This button is register in main.js. 
@@ -295,6 +297,7 @@ export default {
   },
   data: () => {
     return {
+      ageOfFish: 5,
       ageOfCat: '3',
       dynamicMessage: 'ddddd',
       valueOfMyVModel: 10,
