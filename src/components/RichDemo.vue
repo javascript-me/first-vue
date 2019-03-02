@@ -1,5 +1,10 @@
 <template>
   <div class="hello-world-component">
+
+    Base Button: <BaseButton /> This button is register in main.js. 
+
+    <hr />
+
     <MyVModel v-model="valueOfMyVModel" />
 
     <hr />
