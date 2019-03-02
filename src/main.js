@@ -16,8 +16,6 @@ const requireComponent = require.context(
 
 
 requireComponent.keys().forEach(fileName => {
-  console.log('fileName', fileName)
-
   // 获取组件配置
   const componentConfig = requireComponent(fileName)
 

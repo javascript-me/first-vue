@@ -6,7 +6,8 @@
     <HelloPanel class='additional' v-bind:class="true ? 'a' : 'b'" />
     <hr />
     
-    <RichDemo messageFromParent="Message from parent"/>
+    <!-- 也可以使用messageFromParent -->
+    <RichDemo message-from-parent="Message from parent"/>
 
     <hr />
 
