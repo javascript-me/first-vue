@@ -3,11 +3,11 @@
 		this is message: {{message}}<br />
 		this is dynamicMessage: {{dynamicMessage}}<br />
 		this is ageOfCat: {{ageOfCat}}
-		<button @click="checkAgeOfCat">check ageOfCat</button>
+		<button @click="checkAgeOfCat">check ageOfCat</button><br />
 		this is ageOfDog: {{ageOfDog}}
-		<button @click="checkAgeOfDog">check ageOfDog</button>
+		<button @click="checkAgeOfDog">check ageOfDog</button><br />
 		this is ageOfFish: {{ageOfFish}}
-		<button @click="checkAgeOfFish">check ageOfFish</button>
+		<button @click="checkAgeOfFish">check ageOfFish</button><br />
 	</div>
 </template>
 
