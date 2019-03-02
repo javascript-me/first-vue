@@ -1,6 +1,12 @@
 <template>
   <div class="hello-world-component">
 
+    <PassPropDemo message="yyy"
+      v-bind:dynamicMessage="dynamicMessage"
+      v-bind:ageOfCat="ageOfCat" />
+
+    <hr />
+
     Base Button: <BaseButton /> This button is register in main.js. 
 
     <hr />
@@ -272,6 +278,8 @@
 <script>
 import MyVModel from './MyVModel.vue'
 import TodoItem from './TodoItem.vue'
+import PassPropDemo from './PassPropDemo.vue'
+
 import _ from 'lodash'
 import axios from 'axios'
 
@@ -279,13 +287,16 @@ export default {
   name: 'RichDemo',
   components: {
     TodoItem,
-    MyVModel
+    MyVModel,
+    PassPropDemo
   },
   props: {
     messageFromParent: String
   },
   data: () => {
     return {
+      ageOfCat: '3',
+      dynamicMessage: 'ddddd',
       valueOfMyVModel: 10,
       myInputValue: 'ttt',
       age: 20,
