@@ -28,7 +28,10 @@
       
     <hr />
 
-    Base Button: <BaseButton /> This button is register in main.js. 
+    Base Button: <BaseButton /> This button is register in main.js. <br />
+    Base Input: <BaseInput v-model="username"
+      placeholder="Enter your username"
+    />
 
     <hr />
 
@@ -321,6 +324,7 @@ export default {
   },
   data: () => {
     return {
+      username: 'HELLO KITTY',
       author: new Person('anthony', 'chen'),
       bookInfo: {
         id: '11111',
