@@ -12,8 +12,9 @@
       gender: 'male',
       phone: 1234567890
     }"
-      v-bind:author="author" />
-
+      v-bind:author="author"
+      notExist="kkk"
+      v-bind:otherAttribute="true" />
     <hr />
 
     <h3>PassPropDemo</h3>
