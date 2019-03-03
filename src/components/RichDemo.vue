@@ -1,10 +1,22 @@
 <template>
   <div class="hello-world-component">
 
+    <h3>PassPropWithTypeCheckingDemo</h3>
+
+    <PassPropWithTypeCheckingDemo v-bind:ageOfMan='20' v-bind="{
+      gender: 'male',
+      phone: 1234567890
+    }" />
+
+    <hr />
+
+    <h3>PassPropDemo</h3>
+
     <PassPropDemo message="yyy"
       v-bind:dynamicMessage="dynamicMessage"
       v-bind:ageOfCat="ageOfCat"
       ageOfDog='4'
+      age-of-dog-dash='99'
       v-bind:ageOfFish="ageOfFish" />
       
     <hr />
@@ -281,6 +293,7 @@
 import MyVModel from './MyVModel.vue'
 import TodoItem from './TodoItem.vue'
 import PassPropDemo from './PassPropDemo.vue'
+import PassPropWithTypeCheckingDemo from './PassPropWithTypeCheckingDemo.vue'
 
 import _ from 'lodash'
 import axios from 'axios'
@@ -290,7 +303,8 @@ export default {
   components: {
     TodoItem,
     MyVModel,
-    PassPropDemo
+    PassPropDemo,
+    PassPropWithTypeCheckingDemo
   },
   props: {
     messageFromParent: String

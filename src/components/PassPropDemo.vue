@@ -6,6 +6,7 @@
 		<button @click="checkAgeOfCat">check ageOfCat</button><br />
 		this is ageOfDog: {{ageOfDog}}
 		<button @click="checkAgeOfDog">check ageOfDog</button><br />
+		this is ageOfDogDash : {{ageOfDogDash}}<br />
 		this is ageOfFish: {{ageOfFish}}
 		<button @click="checkAgeOfFish">check ageOfFish</button><br />
 	</div>
@@ -19,6 +20,7 @@ export default {
 		'dynamicMessage',
 		'ageOfCat',
 		'ageOfDog',
+		'ageOfDogDash',
 		'ageOfFish'
 	],
 	methods: {
