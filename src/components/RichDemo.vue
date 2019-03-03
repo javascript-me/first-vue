@@ -11,7 +11,8 @@
     <PassPropWithTypeCheckingDemo v-bind:ageOfMan='20' v-bind="{
       gender: 'male',
       phone: 1234567890
-    }" />
+    }"
+      v-bind:author="author" />
 
     <hr />
 
@@ -300,6 +301,7 @@ import TodoItem from './TodoItem.vue'
 import PassPropDemo from './PassPropDemo.vue'
 import StorePropInData from './StorePropInData.vue'
 import PassPropWithTypeCheckingDemo from './PassPropWithTypeCheckingDemo.vue'
+import Person from './Person'
 
 import _ from 'lodash'
 import axios from 'axios'
@@ -318,6 +320,7 @@ export default {
   },
   data: () => {
     return {
+      author: new Person('anthony', 'chen'),
       bookInfo: {
         id: '11111',
         name: 'java'
