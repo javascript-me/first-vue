@@ -1,6 +1,11 @@
 <template>
   <div class="hello-world-component">
 
+    <h3>StorePropInData</h3>
+    <StorePropInData v-bind:bookInfo="bookInfo" />
+    <button @click="showBookInfo">Show Book Info</button>
+
+    <hr />
     <h3>PassPropWithTypeCheckingDemo</h3>
 
     <PassPropWithTypeCheckingDemo v-bind:ageOfMan='20' v-bind="{
@@ -293,6 +298,7 @@
 import MyVModel from './MyVModel.vue'
 import TodoItem from './TodoItem.vue'
 import PassPropDemo from './PassPropDemo.vue'
+import StorePropInData from './StorePropInData.vue'
 import PassPropWithTypeCheckingDemo from './PassPropWithTypeCheckingDemo.vue'
 
 import _ from 'lodash'
@@ -304,13 +310,18 @@ export default {
     TodoItem,
     MyVModel,
     PassPropDemo,
-    PassPropWithTypeCheckingDemo
+    PassPropWithTypeCheckingDemo,
+    StorePropInData
   },
   props: {
     messageFromParent: String
   },
   data: () => {
     return {
+      bookInfo: {
+        id: '11111',
+        name: 'java'
+      },
       ageOfFish: 5,
       ageOfCat: '3',
       dynamicMessage: 'ddddd',
@@ -377,6 +388,9 @@ export default {
     }
   },
   methods: {
+    showBookInfo: function () {
+      console.log('bookInfo', JSON.stringify(this.bookInfo, null, 4))
+    },
     handleMyInputChange: function (e) {
       console.log('new value: ', e.target.value)
     },
