@@ -28,6 +28,8 @@
       
     <hr />
 
+    BaseCheckbox: <BaseCheckbox v-model="valueOfBaseCheckbox" /><br />
+
     Base Button: <BaseButton /> This button is register in main.js. <br />
     Base Input: <BaseInput v-model="username"
       placeholder="Enter your username"
@@ -324,6 +326,7 @@ export default {
   },
   data: () => {
     return {
+      valueOfBaseCheckbox: false,
       username: 'HELLO KITTY',
       author: new Person('anthony', 'chen'),
       bookInfo: {

@@ -11,7 +11,10 @@ slot里面如果有三个结点，怎么被组件内部引用其中一个？
 
 各个生命周期有什么具体应用。
 
-vue的日期、表格和form-viewer-editor，
+vue的日期、表格和form-viewer-editor。
+
+对自己的组件进行重命名。
+
 
 
 
