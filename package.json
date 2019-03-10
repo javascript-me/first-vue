@@ -6,10 +6,12 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "development-build": "vue-cli-service build --mode development",
+    "staging-build": "vue-cli-service build --mode staging",
     "test-build": "vue-cli-service build --mode test",
     "lint": "vue-cli-service lint",
     "inspect": "vue-cli-service inspect",
     "inspect-development": "vue-cli-service inspect --mode development",
+    "inspect-staging": "vue-cli-service inspect --mode staging",
     "inspect-test": "vue-cli-service inspect --mode test",
     "inspect-production": "vue-cli-service inspect --mode production"
   },

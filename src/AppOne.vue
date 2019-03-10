@@ -28,6 +28,10 @@ export default {
     RichDemo,
     HelloPanel,
     MyTabBar
+  },
+  created: function () {
+    console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
+    console.log('process.env.VUE_APP_TITLE: ', process.env.VUE_APP_TITLE)
   }
 }
 </script>
