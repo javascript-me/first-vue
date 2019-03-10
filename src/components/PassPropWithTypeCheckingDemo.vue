@@ -26,7 +26,7 @@ export default {
 			console.log('author: ', JSON.stringify(this.author, null, 4))
 		},
 		showNotExist: function () {
-			// this.$attrs包含了上面props里面不存在的由用户传入的属性
+			// this.$attrs包含了上面props里面不存在的由用户传入的属性。
 			console.log('not exist: ', this.$attrs)
 		}
 	}
