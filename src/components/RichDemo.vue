@@ -34,7 +34,8 @@
     Base Button: <BaseButton /> This button is register in main.js. <br />
     Base Input: <BaseInput v-model="username"
       placeholder="Enter your username"
-    />
+    /><br />
+    <button @click="showUserName">Show Above User Name</button>
 
     <hr />
 
@@ -400,6 +401,9 @@ export default {
     }
   },
   methods: {
+    showUserName: function () {
+      console.log('user name is: ', this.username)
+    },
     showBookInfo: function () {
       console.log('bookInfo', JSON.stringify(this.bookInfo, null, 4))
     },

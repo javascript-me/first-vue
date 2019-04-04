@@ -8,6 +8,7 @@
       >
 
 	  <button @click="showRootAttrs">Show Root attrs</button>
+	  <button @click="showListeners">Show Listeners</button>
     </label>
 </template>
 
@@ -25,6 +26,9 @@ export default {
 	methods: {
 		showRootAttrs: function () {
 			console.log('this.$attrs', this.$attrs)
+		},
+		showListeners: function () {
+			console.log('this.$listeners', this.$listeners)
 		}
 	}
 }
