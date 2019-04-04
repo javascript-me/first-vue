@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import AppOne from './AppOne.vue'
+import AppOne from './app-one.vue'
 import AppOther from './AppOther.vue'
 
 Vue.use(Router)
