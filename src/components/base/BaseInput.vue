@@ -4,9 +4,9 @@
       <input
         v-bind="$attrs"
         v-bind:value="value"
-        v-on:input="$emit('input', $event.target.value)"
+        v-on="inputListeners"
       >
-
+		<!-- 组件外的所有事件，都会被绑定到上面的input结点上。这样就不用手动一个一个事件地绑上去给它了。 -->
 	  <button @click="showRootAttrs">Show Root attrs</button>
 	  <button @click="showListeners">Show Listeners</button>
     </label>
@@ -30,7 +30,25 @@ export default {
 		showListeners: function () {
 			console.log('this.$listeners', this.$listeners)
 		}
-	}
+	},
+	computed: {
+    inputListeners: function () {
+      var vm = this
+      // `Object.assign` 将所有的对象合并为一个新对象
+      return Object.assign({},
+        // 我们从父级添加所有的监听器
+        this.$listeners,
+        // 然后我们添加自定义监听器，
+        // 或覆写一些监听器的行为
+        {
+          // 这里确保组件配合 `v-model` 的工作
+          input: function (event) {
+            vm.$emit('input', event.target.value)
+          }
+        }
+      )
+    }
+  },
 }
 </script>
 

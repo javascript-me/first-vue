@@ -33,7 +33,7 @@
 
     Base Button: <BaseButton /> This button is register in main.js. <br />
     Base Input: <BaseInput v-model="username"
-      placeholder="Enter your username"
+      placeholder="Enter your username" v-on:focus="handleInputFocus"
     /><br />
     <button @click="showUserName">Show Above User Name</button>
 
@@ -401,6 +401,9 @@ export default {
     }
   },
   methods: {
+    handleInputFocus: function () {
+      console.log('handle input focus... ')
+    },
     showUserName: function () {
       console.log('user name is: ', this.username)
     },
