@@ -20,6 +20,7 @@
     <h3>PassPropDemo</h3>
 
     <PassPropDemo message="yyy"
+      message-more="yyy more"
       v-bind:dynamicMessage="dynamicMessage"
       v-bind:ageOfCat="ageOfCat"
       ageOfDog='4'

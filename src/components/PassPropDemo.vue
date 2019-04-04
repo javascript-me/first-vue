@@ -1,6 +1,7 @@
 <template>
 	<div>
 		this is message: {{message}}<br />
+		this is messageMore from props: {{messageMore}}<br />
 		this is dynamicMessage: {{dynamicMessage}}<br />
 		this is ageOfCat: {{ageOfCat}}
 		<button @click="checkAgeOfCat">check ageOfCat</button><br />
@@ -17,6 +18,7 @@ export default {
 	name: 'PassPropDemo',
 	props: [
 		'message',
+		'messageMore',
 		'dynamicMessage',
 		'ageOfCat',
 		'ageOfDog',
