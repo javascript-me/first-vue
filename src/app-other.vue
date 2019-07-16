@@ -24,8 +24,14 @@
     </BaseLayout>
 
     <hr>
+	default current user:
     <current-user>
-      <template v-slot:default>okok</template>
+    </current-user>
+
+    <hr>
+	current user with replacement:
+    <current-user>
+      <template v-slot:default>replacement</template>
     </current-user>
   </div>
 </template>
