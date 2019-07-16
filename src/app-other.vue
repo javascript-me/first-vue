@@ -23,16 +23,18 @@
       </template>
     </BaseLayout>
 
-    <hr>
-	default current user:
-    <current-user>
-    </current-user>
+    <hr>default current user:
+    <current-user></current-user>
 
-    <hr>
-	current user with replacement:
+    <hr>current user with replacement:
     <current-user>
       <template v-slot:default>replacement</template>
     </current-user>
+
+    <hr>
+    <SlotList :items="listItems">
+      <div slot-scope="row" class="list-item1">{{row.item.text}}</div>
+    </SlotList>
   </div>
 </template>
 
@@ -40,17 +42,24 @@
 import FirstSlot from "./components/first-slot.vue";
 import BaseLayout from "./components/base-layout.vue";
 import CurrentUser from "./components/current-user.vue";
+import SlotList from "./components/slot-list.vue";
 
 export default {
   name: "AppOther",
   components: {
     FirstSlot,
     BaseLayout,
-    CurrentUser
+    CurrentUser,
+    SlotList
   },
   data: () => {
     return {
-      slotValue: "slot value..."
+      slotValue: "slot value...",
+      listItems: [
+        { text: "First item", icon: "fa fa-user" },
+        { text: "Second item", icon: "fa fa-copy" },
+        { text: "Third item", icon: "fa fa-cut" }
+      ]
     };
   }
 };
