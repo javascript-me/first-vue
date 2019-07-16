@@ -1,18 +1,17 @@
 <template>
   <span>
-    <slot v-bind:user="user">{{ user.lastName }}</slot>
+    <slot>placeholder for lastName: {{this.incomingUser.lastName}}</slot>
   </span>
 </template>
 
 <script>
 export default {
   name: "CurrentUser",
+  props: [
+	  'incomingUser'
+  ],
   data: () => {
 	  return {
-		  user: {
-			  lastName: 'chen',
-			  firstName: 'anthony'
-		  }
 	  }
   }
 };

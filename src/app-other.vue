@@ -24,14 +24,15 @@
     </BaseLayout>
 
     <hr>default current user:
-    <current-user></current-user>
+    <current-user :incomingUser="goodUser"></current-user>
 
-    <hr>current user with replacement:
-    <current-user>
-      <template v-slot:default>replacement</template>
+    <hr>current user with replacement (这里使用firtName来覆盖组件内部默认的lastName，这是一个奇怪的需求):
+    <current-user :incomingUser="goodUser">
+      <template v-slot:default="{goodUser}">{{goodUser.firstName}}</template>
     </current-user>
 
     <hr>
+	这个功能已经演示了slot最有用的东西了，就是用新的组件去替换默认的组件，但是它们使用的数据源是相同的。。。
     <SlotList :items="listItems">
       <div slot-scope="row" class="list-item1">{{row.item.text}}</div>
     </SlotList>
@@ -54,7 +55,11 @@ export default {
   },
   data: () => {
     return {
-      slotValue: "slot value...",
+	  slotValue: "slot value...",
+	  goodUser: {
+		  firstName: 'joanna',
+		  lastName: 'wang'
+	  },
       listItems: [
         { text: "First item", icon: "fa fa-user" },
         { text: "Second item", icon: "fa fa-copy" },
