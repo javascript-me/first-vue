@@ -4,8 +4,10 @@
     <FirstSlot>
       Execuse Me: {{this.slotValue}}
     </FirstSlot>
+	<hr />
     first slot B: <br />
     <FirstSlot />
+	<hr />
   </div>
 </template>
 
