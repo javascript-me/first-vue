@@ -4,6 +4,9 @@
 
 <script>
 export default {
-	name: 'TabArchive'
+	name: 'TabArchive',
+	created: function () {
+		console.log('TabArchive created. ')
+	}
 }
 </script>

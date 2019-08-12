@@ -5,6 +5,9 @@
 
 <script>
 export default {
-	name: 'TabPosts'
+	name: 'TabPosts',
+	created: function () {
+		console.log('TabPosts created. ')
+	}
 }
 </script>
