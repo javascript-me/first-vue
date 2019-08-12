@@ -5,15 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "development-build": "vue-cli-service build --mode development",
-    "staging-build": "vue-cli-service build --mode staging",
-    "test-build": "vue-cli-service build --mode test",
-    "lint": "vue-cli-service lint",
+    "build-development": "vue-cli-service build --mode development",
+    "build-staging": "vue-cli-service build --mode staging",
+    "build-test": "vue-cli-service build --mode test",
+    "build-production": "vue-cli-service build --mode production",
     "inspect": "vue-cli-service inspect",
     "inspect-development": "vue-cli-service inspect --mode development",
     "inspect-staging": "vue-cli-service inspect --mode staging",
     "inspect-test": "vue-cli-service inspect --mode test",
-    "inspect-production": "vue-cli-service inspect --mode production"
+	"inspect-production": "vue-cli-service inspect --mode production",
+	"lint": "vue-cli-service lint"
   },
   "dependencies": {
     "vue": "^2.5.21"
