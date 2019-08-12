@@ -1,5 +1,5 @@
 <template>
-	<div id="dynamic-component-demo" class="dynamic-component-demo">
+	<div id="dynamic-component-demo" ref="helloDiv" class="dynamic-component-demo">
 		<button
 			v-for="tab in tabs"
 			v-bind:key="tab"
@@ -11,6 +11,8 @@
 		<keep-alive>
 			<component v-bind:is="currentTabComponent" class="tab"></component>
 		</keep-alive>
+
+		<button @click="accessChild">access child</button>
 	</div>
 </template>
 
@@ -36,6 +38,11 @@ export default {
 		TabHome,
 		TabPosts,
 		TabArchive
+	},
+	methods: {
+		accessChild: function () {
+			console.log('child: ', this.$refs.helloDiv.clientWidth)
+		}
 	}
 }
 </script>

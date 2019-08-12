@@ -1,6 +1,8 @@
 TODO
 ========
 
+停留：https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5
+
 实现v-model的方法https://stackoverflow.com/questions/43701175/is-it-possible-to-change-props-value-from-method-in-vue-component
 
 把components目录重全名为ui。

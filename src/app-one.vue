@@ -31,7 +31,9 @@ export default {
   },
   created: function () {
     console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
-    console.log('process.env.VUE_APP_TITLE: ', process.env.VUE_APP_TITLE)
+	console.log('process.env.VUE_APP_TITLE: ', process.env.VUE_APP_TITLE)
+	
+	console.log('root', this.$root)
   }
 }
 </script>
