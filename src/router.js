@@ -4,6 +4,9 @@ import AppOne from './app-one.vue'
 
 Vue.use(Router)
 
+// When using lazy loading, only production build will generate hash number in
+// file name, e.g. app-other.a5125192.js. 
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
