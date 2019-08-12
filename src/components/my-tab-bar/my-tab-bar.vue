@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import TabHome from './TabHome.vue'
-import TabPosts from './TabPosts.vue'
-import TabArchive from './TabArchive.vue'
+import TabHome from './tab-home.vue'
+import TabPosts from './tab-posts.vue'
+import TabArchive from './tab-archive.vue'
 
 export default {
 	name: 'MyTabBar',
