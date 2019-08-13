@@ -42,6 +42,15 @@ export default {
 	methods: {
 		accessChild: function () {
 			console.log('child: ', this.$refs.helloDiv.clientWidth)
+		},
+		getMap: function () {
+			console.log('get map...')
+		}
+	},
+	provide: function () {
+		// Provode a method that can be accessed by all children. 
+		return {
+			getMap: this.getMap
 		}
 	}
 }
