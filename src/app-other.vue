@@ -2,11 +2,18 @@
   <div id="app-other">
 		<hr />
 		<div id="demo">
-			<button v-on:click="show = !show">
-				Toggle
-			</button>
+			<button v-on:click="showA = !showA">
+				Toggle A
+			</button><br />
 			<transition name="fade">
-				<p v-if="show">hello</p>
+				<p v-if="showA">hello</p>
+			</transition>
+
+			<button v-on:click="showB = !showB">
+				Toggle B
+			</button><br />
+			<transition name="slide-fade">
+				<p v-if="showB">hello</p>
 			</transition>
 		</div>
 
@@ -66,7 +73,8 @@ export default {
   },
   data: () => {
     return {
-		show: true,
+		showA: true,
+		showB: true,
 	  slotValue: "slot value...",
 	  goodUser: {
 		  firstName: 'joanna',
@@ -83,10 +91,26 @@ export default {
 </script>
 
 <style>
+/* for toggle A */
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+/* for toggle B */
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
   opacity: 0;
 }
 </style>

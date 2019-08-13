@@ -1,7 +1,7 @@
 TODO
 ========
 
-停留：https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5
+动画一章先停留在这里：https://cn.vuejs.org/v2/guide/transitions.html#CSS-动画
 
 实现v-model的方法https://stackoverflow.com/questions/43701175/is-it-possible-to-change-props-value-from-method-in-vue-component
 
