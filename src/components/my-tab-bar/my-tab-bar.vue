@@ -18,8 +18,6 @@
 
 <script>
 import TabHome from './tab-home.vue'
-import TabPosts from './tab-posts.vue'
-import TabArchive from './tab-archive.vue'
 
 export default {
 	name: 'MyTabBar',
@@ -34,10 +32,15 @@ export default {
 			return 'Tab' + this.currentTab
 		}
 	},
+	beforeCreate: function () {
+		// 这是引用外部UI组件的新方法。
+		this.$options.components.TabPosts = require('./tab-posts.vue').default
+	},
+	// TabArchive是一个异步组件。
 	components: {
 		TabHome,
-		TabPosts,
-		TabArchive
+		// TabPosts,
+		TabArchive: () => import('./tab-archive.vue')
 	},
 	methods: {
 		accessChild: function () {
