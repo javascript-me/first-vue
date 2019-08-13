@@ -1,5 +1,16 @@
 <template>
   <div id="app-other">
+		<hr />
+		<div id="demo">
+			<button v-on:click="show = !show">
+				Toggle
+			</button>
+			<transition name="fade">
+				<p v-if="show">hello</p>
+			</transition>
+		</div>
+
+	  <hr />
     first slot A:
     <br>
     <FirstSlot>Execuse Me: {{this.slotValue}}</FirstSlot>
@@ -55,6 +66,7 @@ export default {
   },
   data: () => {
     return {
+		show: true,
 	  slotValue: "slot value...",
 	  goodUser: {
 		  firstName: 'joanna',
@@ -71,4 +83,10 @@ export default {
 </script>
 
 <style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
