@@ -1,6 +1,8 @@
 TODO
 ========
 
+https://cn.vuejs.org/v2/guide/plugins.html
+
 动画一章先停留在这里：https://cn.vuejs.org/v2/guide/transitions.html#CSS-动画
 
 实现v-model的方法https://stackoverflow.com/questions/43701175/is-it-possible-to-change-props-value-from-method-in-vue-component
