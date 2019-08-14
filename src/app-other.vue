@@ -1,5 +1,9 @@
 <template>
   <div id="app-other">
+	  	<hr />
+		过滤器是一种华而不实的东西。
+		message to be filter: 
+		<label>{{transformMessage | capitalize}}</label>
 		<hr />
 		<div id="demo">
 			<button v-on:click="showA = !showA">
@@ -71,20 +75,28 @@ export default {
     CurrentUser,
     SlotList
   },
+  filters: {
+		capitalize: function (value) {
+			if (!value) return ''
+			value = value.toString()
+			return value.charAt(0).toUpperCase() + value.slice(1)
+		}
+  },
   data: () => {
     return {
 		showA: true,
 		showB: true,
-	  slotValue: "slot value...",
-	  goodUser: {
-		  firstName: 'joanna',
-		  lastName: 'wang'
-	  },
-      listItems: [
-        { text: "First item", icon: "fa fa-user" },
-        { text: "Second item", icon: "fa fa-copy" },
-        { text: "Third item", icon: "fa fa-cut" }
-      ]
+		transformMessage: 'ddd',
+		slotValue: "slot value...",
+		goodUser: {
+			firstName: 'joanna',
+			lastName: 'wang'
+		},
+		listItems: [
+			{ text: "First item", icon: "fa fa-user" },
+			{ text: "Second item", icon: "fa fa-copy" },
+			{ text: "Third item", icon: "fa fa-cut" }
+		]
     };
   }
 };
