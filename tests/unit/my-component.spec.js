@@ -30,4 +30,21 @@ describe('MyComponent', () => {
 		const vm = new Constructor().$mount()
 		expect(vm.$el.textContent).equal('bye!')
 	})
+
+	// 在状态更新后检查生成的 HTML
+	it('updates the rendered message when vm.message updates', done => {
+		const vm = new Vue(MyComponent).$mount()
+
+		expect(vm.$el.textContent).equal('bye!')
+		vm.message = 'foo'
+
+		// 按道理，这个断言应该要失败的，但实际却能成功，太离奇了。
+		expect(vm.$el.textContent).equal('foo')
+
+		// 在状态改变后和断言 DOM 更新前等待一刻
+		Vue.nextTick(() => {
+			expect(vm.$el.textContent).equal('foo')
+			done()
+		})
+	})
 })
