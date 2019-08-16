@@ -20,8 +20,10 @@ describe('MyComponent', () => {
 
 	// 检查 mount 中的组件实例
 	it('correctly sets the message when created', () => {
+		// 用Vue构造器的模式可以快速生成vm。
 		const vm = new Vue(MyComponent).$mount()
 		expect(vm.message).equal('bye!')
+		expect(vm.$el.textContent).equal('bye!')
 	})
 
 	// 创建一个实例并检查渲染输出
@@ -31,7 +33,7 @@ describe('MyComponent', () => {
 		expect(vm.$el.textContent).equal('bye!')
 	})
 
-	// 在状态更新后检查生成的 HTML
+	// 在状态更新后检查生成的HTML
 	it('updates the rendered message when vm.message updates', done => {
 		const vm = new Vue(MyComponent).$mount()
 
